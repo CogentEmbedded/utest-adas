@@ -1,0 +1,20 @@
+1. HOW TO BUILD
+
+First, install toolchain:
+
+    source poky/oe-init-build-env
+    bitbake meta-toolchain-weston
+    cd $BUILDDIR/tmp/deploy/sdk
+    sh poky-eglibc-x86_64-meta-toolchain-weston-cortexa15hf-vfp-neon-toolchain-1.6.1.sh
+
+Default installation directory is /opt/poky/1.6.1-lager/sysroots.
+
+Generate makefiles:
+
+    cd ${PROJECT_DIR}/build
+    source /opt/poky/1.6.1-lager/environment-setup-cortexa15hf-vfp-neon-poky-linux-gnueabi
+    cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=../ -DBINARY_DIR=bin ../
+
+Build:
+    
+    make -j8 install

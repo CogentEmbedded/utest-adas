@@ -1,0 +1,7 @@
+build/
+Makefile
+CMakeFiles/
+**/CMakeFiles
+nbproject/
+output/
+.idea
